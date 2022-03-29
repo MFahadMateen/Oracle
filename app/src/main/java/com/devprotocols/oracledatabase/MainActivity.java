@@ -105,19 +105,17 @@ public class MainActivity extends AppCompatActivity {
                     try {
                         stmt = conn1.createStatement();
                         String query = "SELECT article_code, barcode, descrption_english, description_arabic, price FROM spar_ecom_items WHERE barcode = '628101812018' AND site = 40";
-//                        String query = "select Article_Code, Barcode, Descrption_English, Description_Arabic, Price from SPAR_ECOM_Items where Barcode = '628101812018' and Site = 40";
-//                        String query = "select * from SPAR_ECOM_Items";
                         ResultSet rs = stmt.executeQuery(query);
                         while (rs.next())
-                            myModelList.add(new MyModel(String.valueOf(rs.getInt(1)), String.valueOf(rs.getInt(2)), String.valueOf(rs.getInt(3)), String.valueOf(rs.getInt(4)), String.valueOf(rs.getInt(5))));
+                            myModelList.add(new MyModel(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5)));
 
-//                            System.out.println(rs.getInt(1) + "  " + rs.getString(2) + "  " + rs.getString(3));
 //                        conn1.close();
-                        adapter.setList(myModelList);
+
                     } catch (SQLException throwable) {
                         throwable.printStackTrace();
                     }
                     runOnUiThread(() -> {
+                        adapter.setList(myModelList);
                         binding.progressBar.setVisibility(View.GONE);
                         BaseUtils.showToast(MainActivity.this, "Connected");
                     });
