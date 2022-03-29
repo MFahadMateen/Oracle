@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Oracle Database</string>
+    <string name="enter_the_fields_to_connect_with_database">Enter the fields to connect with Database</string>
+    <string name="connect">Connect</string>
+    <string name="server_name_ip_address">Server name / Ip address</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="port_number">Port number</string>
+    <string name="oracle_service_name">Oracle service name</string>
+    <string name="table_name">Table name</string>
+</resources>
